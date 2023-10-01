@@ -19,62 +19,36 @@ import com.akash00028.advancedCrud.models.Salary;
 import com.akash00028.advancedCrud.service.SalaryService;
 
 @RestController
-@RequestMapping("/api/v1/employees")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("employees")
 public class SalaryController {
 	@Autowired
 	private SalaryService salaryService;
 
-	/**
-	 * http://localhost:9090/api/v1/employees/salary
-	 * 
-	 * @param salary
-	 * @return
-	 */
+	
 	@PostMapping("/salary")
 	public ResponseEntity<Salary> save(@RequestBody Salary salary) {
 		return salaryService.save(salary);
 	}
 
-	/**
-	 * http://localhost:9090/api/v1/employees/salary
-	 * 
-	 * @return
-	 */
+	
 	@GetMapping("salary")
 	public ResponseEntity<List<Salary>> getSalary() {
 		return salaryService.findAll();
 	}
 
-	/**
-	 * http://localhost:9090/api/v1/employees/salary/122
-	 * 
-	 * @param id
-	 * @return
-	 */
+	
 	@GetMapping("salary/{id}")
 	public ResponseEntity<Salary> getSalaryById(@PathVariable Long id) {
 		return salaryService.findById(id);
 	}
 
-	/**
-	 * http://localhost:9090/api/v1/employees/salary/122/12453
-	 * 
-	 * @param id
-	 * @param amount
-	 * @return
-	 */
+	
 	@PutMapping("salary/{id}/{newSalary}")
 	public ResponseEntity<Salary> updateSalary(@PathVariable Long id, @PathVariable double newSalary) {
 		return salaryService.update(id, newSalary);
 	}
 
-	/**
-	 * http://localhost:9090/api/v1/employees/salary/132
-	 * 
-	 * @param id
-	 * @return
-	 */
+	
 	@DeleteMapping("salary/{id}")
 	public ResponseEntity<Map<String, Boolean>> delete(@PathVariable Long id) {
 		return salaryService.delete(id);
