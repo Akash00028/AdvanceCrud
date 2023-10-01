@@ -38,7 +38,6 @@ public class SkillService {
 		Skill skill = skillRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Skill with " + id + " not found"));
 		skill.setName(skillDetails.getName());
-//		skill.setProficency(skillDetails.getProficency());
 		skill.setEmployees(skillDetails.getEmployees());
 		return ResponseEntity.ok(skill);
 	}
