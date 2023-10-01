@@ -19,73 +19,37 @@ import com.akash00028.advancedCrud.models.Employee;
 import com.akash00028.advancedCrud.service.EmployeeService;
 
 @RestController
-@RequestMapping("/api/v1/")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("")
 public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
 
-	/**
-	 * on post
-	 * 
-	 * http://localhost:9090/api/v1/employees
-	 * 
-	 * @param employee
-	 * @return
-	 */
+	
 	@PostMapping("/employees")
 	public ResponseEntity<Employee> save(@RequestBody Employee employee) {
 		return employeeService.save(employee);
 	}
 
-	/**
-	 * on get
-	 * 
-	 * http://localhost:9090/api/v1/employees/load
-	 * 
-	 * @return
-	 */
+	
 	@GetMapping("/employees")
 	public ResponseEntity<List<Employee>> getEmployees() {
 		return employeeService.findAll();
 	}
 
-	/**
-	 * on get
-	 * 
-	 * http://localhost:9090/api/v1/employees/152
-	 * 
-	 * @param id
-	 * @return
-	 */
+	
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
 		return employeeService.getById(id);
 	}
 
-	/**
-	 * on put
-	 * 
-	 * http://localhost:9090/api/v1/employees/152
-	 * 
-	 * @param id
-	 * @param employeeDetails
-	 * @return
-	 */
+	
 	@PutMapping("/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee employeeDetails) {
 		return employeeService.update(id, employeeDetails);
 	}
 
-	/**
-	 * on delete
-	 * 
-	 * http://localhost:9090/api/v1/employees/152
-	 * 
-	 * @param id
-	 * @return
-	 */
+	
 	
 	@DeleteMapping("/employees/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteById(@PathVariable Long id) {
