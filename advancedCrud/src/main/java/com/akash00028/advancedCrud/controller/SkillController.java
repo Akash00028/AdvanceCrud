@@ -20,7 +20,7 @@ import com.akash00028.advancedCrud.service.SkillService;
 
 
 @RestController
-@RequestMapping("/api/v1/employees/")
+@RequestMapping("employees/")
 public class SkillController {
 	@Autowired
 	private SkillService skillService;
