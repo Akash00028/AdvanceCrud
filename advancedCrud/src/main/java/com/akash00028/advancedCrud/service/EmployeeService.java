@@ -19,17 +19,7 @@ import com.akash00028.advancedCrud.repository.EmployeeRepository;
 import com.akash00028.advancedCrud.repository.SkillRepository;
 import com.akash00028.advancedCrud.repository.salaryRepository;
 
-/**
- * @author RPTWR Spring scans for classes annotated with @Service and registers
- *         them as singleton beans. These beans can then be autowired into other
- *         components using the @Autowired annotation.
- * 
- *         For example, in a typical MVC architecture, the service layer is
- *         responsible for processing business logic, validating data, and
- *         interacting with the repository layer. By annotating a class
- *         with @Service, you can mark it as a service component and let Spring
- *         manage its lifecycle and dependencies.
- */
+
 @Service
 public class EmployeeService {
 
@@ -44,16 +34,7 @@ public class EmployeeService {
 	@Autowired
 	private SalaryService salaryService;
 
-	/**
-	 * @param employee
-	 * @return First, the code sets the Employee object on the associated Salary
-	 *         object by calling employee.getSalary().setEmployee(employee). This is
-	 *         likely done to establish a bi-directional relationship between the
-	 *         two objects, as the Employee object is the owner of the relationship
-	 *         and the Salary object is a dependent entity. By setting the Employee
-	 *         object on the Salary object, we ensure that the relationship is
-	 *         properly established and can be persisted to the database.
-	 */
+	
 	public ResponseEntity<Employee> save(Employee employee) {
 		Skill skill = new Skill();
 		List<Skill> skills = new ArrayList<>();
