@@ -20,9 +20,6 @@ public class DepartmentService {
 	private DepartmentRepository departmentRepository;
 
 	public ResponseEntity<Department> save(Department department) {
-//		for(Employee employee : department.getEmployees()) {
-//			employee.setDep(department);
-//		}
 		departmentRepository.save(department);
 		return ResponseEntity.ok(department);
 	}
